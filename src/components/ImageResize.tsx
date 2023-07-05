@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useRef, useState } from "react";
 import "./imageResize.css";
 import ReactCrop, {
@@ -13,17 +14,18 @@ import { uploadToS3 } from "../utils/uploadToS3";
 import { autoCrop } from "../utils/autoCrop";
 
 function ImageResize() {
-  const [loadedImage, setLoadedImage] = useState<File>();
+  // const [loadedImage, setLoadedImage] = useState<File>();
   const [imageSource, setImageSource] = useState<string>();
   const [crop, setCrop] = useState<Crop>();
   const previewCanvasRef = useRef<HTMLCanvasElement>(null);
   const [completedCrop, setCompletedCrop] = useState<PixelCrop>();
-  const [aspect, setAspect] = useState<number | undefined>(16 / 9);
+  // const [aspect, setAspect] = useState<number | undefined>(16 / 9);
   const imageRef = useRef<HTMLImageElement>(null);
+  const aspect = 16 / 9
 
   function onSelectFile(e: React.ChangeEvent<HTMLInputElement>) {
     if (e.target.files && e.target.files.length > 0) {
-      setLoadedImage(e.target.files[0]);
+      // setLoadedImage(e.target.files[0]);
       const reader = new FileReader();
       reader.addEventListener("load", () =>
         setImageSource(reader.result?.toString() || "")
