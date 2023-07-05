@@ -45,8 +45,10 @@ export async function autoCrop(
 
       canvas.toBlob(
         (blob) => {
-          const croppedImageUrl = URL.createObjectURL(blob);
-          return croppedImageUrl;
+          if(blob){
+            const croppedImageUrl = URL.createObjectURL(blob);
+            return croppedImageUrl;
+          }
         },
         "image/jpeg",
         1

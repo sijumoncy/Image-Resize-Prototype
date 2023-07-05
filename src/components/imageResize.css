@@ -27,10 +27,6 @@
     flex: 1;
 }
 
-.upload-input input {
-   
-}
-
 .image-section{
     display: flex;
     max-width: 98vw;
